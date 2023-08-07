@@ -31,14 +31,14 @@ CREATE TABLE departments (
 
 
 -- Assumption: employees can work in multiple departments (many do in the dataset), therefore
--- emp_no can not be a primary key. With only 2 fields it did not make sense to
--- create a composite key using both fields.
+-- emp_no is not unique. Emp_no and dept_no are unique so both are used as a composite primary key.
 
 CREATE TABLE dept_employee (
 	emp_no INT NOT NULL,
 	dept_no VARCHAR(4) NOT NULL,
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
-	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
+	FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+	PRIMARY KEY (emp_no, dept_no)
 );
 
 -- Assumption: no employee can manage more than 1 department, therefore emp_no is a primary key
