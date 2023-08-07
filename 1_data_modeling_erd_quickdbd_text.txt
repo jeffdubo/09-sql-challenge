@@ -27,8 +27,8 @@ dept_name VARCHAR(30)
 
 dept_employee
 -
-emp_no int FK >- employees.emp_no
-dept_no VARCHAR(4) FK >- departments.dept_no
+emp_no int PK FK >- employees.emp_no
+dept_no VARCHAR(4) PK FK >- departments.dept_no
 
 
 dept_manager
